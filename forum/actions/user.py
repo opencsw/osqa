@@ -165,7 +165,7 @@ class AwardAction(ActionProxy):
         self.user.message_set.create(message=_(
                 """Congratulations, you have received a badge '%(badge_name)s'. Check out <a href=\"%(profile_url)s\">your profile</a>."""
                 ) %
-        dict(badge_name=award.badge.name, profile_url=self.user.get_profile_url()))
+        dict(badge_name=award.badge.name, profile_url=(settings.APP_URL + self.user.get_profile_url())))
 
     def cancel_action(self):
         award = self.award
